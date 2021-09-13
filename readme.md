@@ -4,8 +4,6 @@ This is a Rust implementation of Reversi game (a-ka Othello) https://en.wikipedi
 It compiles into EXE,JS,WASM. PWA (wasm+js) working example you can find at https://denis0x4d.github.io/rustversi/
 
 ```
-Score Player vs Computer -- 2:2
-Options: 4, selected: 2
 Computer has moved to (5,6), +2 score
 
    | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
