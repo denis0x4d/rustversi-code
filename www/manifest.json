@@ -1,0 +1,52 @@
+{
+  "name": "Rustversi",
+  "short_name": "Rustversi",
+  "icons": [
+    {
+      "src": "img/image-70.png",
+      "sizes": "70x70",
+      "type": "image/png"
+    },
+    {
+      "src": "img/image-144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "img/image-150.png",
+      "sizes": "150x150",
+      "type": "image/png"
+    },
+    {
+      "src": "img/image-192.png",
+      "sizes": "310x150",
+      "type": "image/png"
+    },
+    {
+      "src": "img/image-310x150.png",
+      "sizes": "310x150",
+      "type": "image/png"
+    },
+    {
+      "src": "img/image-310.png",
+      "sizes": "310x310",
+      "type": "image/png"
+    },
+    {
+      "src": "img/image-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "img/image-196.png",
+      "sizes": "196x196",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "lang": "en-US",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "black",
+  "theme_color": "black"
+}

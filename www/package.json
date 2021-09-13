@@ -1,0 +1,31 @@
+{
+  "name": "rustversi",
+  "version": "0.1.0",
+  "description": "Reversi in RUST",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "start": "webpack-dev-server"
+  },
+  "keywords": [
+    "webassembly",
+    "wasm",
+    "rust",
+    "webpack"
+  ],
+  "author": "Denis Moskvin <web@moskvin.biz>",
+  "license": "(MIT OR Apache-2.0)",
+  "bugs": {
+    "url": "https://github.com/TBD"
+  },
+  "homepage": "https://github.com/TBD",
+  "dependencies": {
+    "rustversi": "file:../pkg"
+  },
+  "devDependencies": {
+    "webpack": "^4.29.3",        
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5",
+    "copy-webpack-plugin": "^5.0.0"
+  }
+}

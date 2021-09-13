@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Rustversi</title>
+  <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="./img/image-150.png" -->
+  <meta name="theme-color" content="black" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="PWA">
+  <meta name="msapplication-TileImage" content="img/image-144.png">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="./manifest.json">
+</head>
+
+<body class="fullscreen">
+  <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
+  <script src="./bootstrap.js"></script>
+  <div align="center">
+    <table id="board" border="1" cellpadding="1" cellspacing="1">
+      <tr>
+        <td><canvas id="pos18" width="40" height="40"></canvas></td>
+        <td><canvas id="pos28" width="40" height="40"></canvas></td>
+        <td><canvas id="pos38" width="40" height="40"></canvas></td>
+        <td><canvas id="pos48" width="40" height="40"></canvas></td>
+        <td><canvas id="pos58" width="40" height="40"></canvas></td>
+        <td><canvas id="pos68" width="40" height="40"></canvas></td>
+        <td><canvas id="pos78" width="40" height="40"></canvas></td>
+        <td><canvas id="pos88" width="40" height="40"></canvas></td>
+      </tr>
+      <tr>
+        <td><canvas id="pos17" width="40" height="40"></canvas></td>
+        <td><canvas id="pos27" width="40" height="40"></canvas></td>
+        <td><canvas id="pos37" width="40" height="40"></canvas></td>
+        <td><canvas id="pos47" width="40" height="40"></canvas></td>
+        <td><canvas id="pos57" width="40" height="40"></canvas></td>
+        <td><canvas id="pos67" width="40" height="40"></canvas></td>
+        <td><canvas id="pos77" width="40" height="40"></canvas></td>
+        <td><canvas id="pos87" width="40" height="40"></canvas></td>
+      </tr>
+      <tr>
+        <td><canvas id="pos16" width="40" height="40"></canvas></td>
+        <td><canvas id="pos26" width="40" height="40"></canvas></td>
+        <td><canvas id="pos36" width="40" height="40"></canvas></td>
+        <td><canvas id="pos46" width="40" height="40"></canvas></td>
+        <td><canvas id="pos56" width="40" height="40"></canvas></td>
+        <td><canvas id="pos66" width="40" height="40"></canvas></td>
+        <td><canvas id="pos76" width="40" height="40"></canvas></td>
+        <td><canvas id="pos86" width="40" height="40"></canvas></td>
+      </tr>
+      <tr>
+        <td><canvas id="pos15" width="40" height="40"></canvas></td>
+        <td><canvas id="pos25" width="40" height="40"></canvas></td>
+        <td><canvas id="pos35" width="40" height="40"></canvas></td>
+        <td><canvas id="pos45" width="40" height="40"></canvas></td>
+        <td><canvas id="pos55" width="40" height="40"></canvas></td>
+        <td><canvas id="pos65" width="40" height="40"></canvas></td>
+        <td><canvas id="pos75" width="40" height="40"></canvas></td>
+        <td><canvas id="pos85" width="40" height="40"></canvas></td>
+      </tr>
+      <tr>
+        <td><canvas id="pos14" width="40" height="40"></canvas></td>
+        <td><canvas id="pos24" width="40" height="40"></canvas></td>
+        <td><canvas id="pos34" width="40" height="40"></canvas></td>
+        <td><canvas id="pos44" width="40" height="40"></canvas></td>
+        <td><canvas id="pos54" width="40" height="40"></canvas></td>
+        <td><canvas id="pos64" width="40" height="40"></canvas></td>
+        <td><canvas id="pos74" width="40" height="40"></canvas></td>
+        <td><canvas id="pos84" width="40" height="40"></canvas></td>
+      </tr>
+      <tr>
+        <td><canvas id="pos13" width="40" height="40"></canvas></td>
+        <td><canvas id="pos23" width="40" height="40"></canvas></td>
+        <td><canvas id="pos33" width="40" height="40"></canvas></td>
+        <td><canvas id="pos43" width="40" height="40"></canvas></td>
+        <td><canvas id="pos53" width="40" height="40"></canvas></td>
+        <td><canvas id="pos63" width="40" height="40"></canvas></td>
+        <td><canvas id="pos73" width="40" height="40"></canvas></td>
+        <td><canvas id="pos83" width="40" height="40"></canvas></td>
+      </tr>
+      <tr>
+        <td><canvas id="pos12" width="40" height="40"></canvas></td>
+        <td><canvas id="pos22" width="40" height="40"></canvas></td>
+        <td><canvas id="pos32" width="40" height="40"></canvas></td>
+        <td><canvas id="pos42" width="40" height="40"></canvas></td>
+        <td><canvas id="pos52" width="40" height="40"></canvas></td>
+        <td><canvas id="pos62" width="40" height="40"></canvas></td>
+        <td><canvas id="pos72" width="40" height="40"></canvas></td>
+        <td><canvas id="pos82" width="40" height="40"></canvas></td>
+      </tr>
+      <tr>
+        <td><canvas id="pos11" width="40" height="40"></canvas></td>
+        <td><canvas id="pos21" width="40" height="40"></canvas></td>
+        <td><canvas id="pos31" width="40" height="40"></canvas></td>
+        <td><canvas id="pos41" width="40" height="40"></canvas></td>
+        <td><canvas id="pos51" width="40" height="40"></canvas></td>
+        <td><canvas id="pos61" width="40" height="40"></canvas></td>
+        <td><canvas id="pos71" width="40" height="40"></canvas></td>
+        <td><canvas id="pos81" width="40" height="40"></canvas></td>
+      </tr>
+    </table>
+    <div id='log' style="font-size: xx-large;font-weight: bold;"></div>
+    <div id="select">
+      <table id="color" border="0" cellpadding="2" cellspacing="2">
+        <tr>
+          <td><canvas id="white" width="40" height="40"></canvas></td>
+          <td>
+            <div style="font-size: xx-large; font-weight: bold;">?</div>
+          </td>
+          <td><canvas id="black" width="40" height="40"></canvas></td>
+        </tr>
+      </table>
+
+    </div>
+    <script src="./reg.js"></script>
+    <div style="font-size: xx-small;"><a href="https://github.com/denis0x4d/rustversi-code">rustversi</a></div>
+  </div>
+</body>
+
+</html>
