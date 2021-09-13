@@ -1,7 +1,7 @@
 # Rustversi
 
 This is a Rust implementation of Reversi game (a-ka Othello) https://en.wikipedia.org/wiki/Reversi 
-It could be compiled into WASM and used in PWA. Working example https://denis0x4d.github.io/rustversi/
+It compiles into EXE,JS,WASM. PWA (wasm+js) working example you can find at https://denis0x4d.github.io/rustversi/
 
 
 ## prerequisites
