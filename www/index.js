@@ -130,16 +130,18 @@ class Game {
         return true;
     }
 
-    _computerMove(x, y) {
-        let playerСanMove = true;
+    _computerMove() {
+        let playerCanMove = true;
         let computerCanMove = true;
 
         if (wasm.js_possible_movement(this._computer, this._fieldStr)) {
             this._fieldStr = wasm.js_computer_move(this._computer, this._fieldStr);
             this._viewPort.drawField(this._fieldStr);
             console.log(wasm.js_print_field_and_score(this._computer, this._fieldStr, false));
-            playerСanMove = wasm.js_possible_movement(this._player, this._fieldStr);
-            while (!playerСanMove) {
+            console.log("compute..."); //wasm fix?
+            playerCanMove = wasm.js_possible_movement(this._player, this._fieldStr);
+            console.log("...done");
+            while (!playerCanMove && computerCanMove) {
                 if (wasm.js_possible_movement(this._computer, this._fieldStr)) {
                     this._fieldStr = wasm.js_computer_move(this._computer, this._fieldStr);
                     this._viewPort.drawField(this._fieldStr);
@@ -147,14 +149,14 @@ class Game {
                 } else {
                     computerCanMove = false;
                 }
-                playerСanMove = wasm.js_possible_movement(this._player, this._fieldStr);
+                playerCanMove = wasm.js_possible_movement(this._player, this._fieldStr);
             }
         } else {
             computerCanMove = false;
-            playerСanMove = wasm.js_possible_movement(this._player, this._fieldStr);
+            playerCanMove = wasm.js_possible_movement(this._player, this._fieldStr);
             this._viewPort.printMessage("Computer PASS");
         }
-        return [playerСanMove, computerCanMove];
+        return [playerCanMove, computerCanMove];
     }
 
     moveTo(x, y) {
@@ -167,9 +169,9 @@ class Game {
         if (!this._playerMove(x, y)) {
             return;
         }
-        const [playerСanMove, computerCanMove] = this._computerMove(x, y);
-
-        if (!playerСanMove && !computerCanMove) {
+        const [playerCanMove, computerCanMove] = this._computerMove();
+        console.log(playerCanMove+" "+ computerCanMove);
+        if (!playerCanMove && !computerCanMove) {
             console.log(wasm.js_print_field_and_score(this._computer, this._fieldStr, true));
 
             const score = wasm.js_get_score_pc(this._computer, this._fieldStr);
@@ -193,7 +195,9 @@ const game = new Game(viewPort);
 const fieldBody = document.querySelector('#board tbody');
 fieldBody.addEventListener('click', function (e) {
     const cell = e.target.closest('td');
-    if (!cell) { return; }
+    if (!cell) { 
+        return; 
+    }
     const row = cell.parentElement;
     const x = cell.cellIndex + 1;
     const y = BOARD_SIZE - row.rowIndex;
@@ -203,7 +207,9 @@ fieldBody.addEventListener('click', function (e) {
 const selectBody = document.querySelector('#select tbody');
 selectBody.addEventListener('click', function (e) {
     const cell = e.target.closest('td');
-    if (!cell) { return; }
+    if (!cell) { 
+        return; 
+    }
     const x = cell.cellIndex;
     game.start(x == 0 ? WHITE : BLACK);
     viewPort.hideSelect();

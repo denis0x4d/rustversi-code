@@ -1,4 +1,4 @@
-const cacheName = 'pwa_v1';
+const cacheName = 'pwa_v2';
 const includeToCache = [
   './',
   './index.html',
