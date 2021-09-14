@@ -1,8 +1,8 @@
 use crate::point::{Point};
 use crate::occupytype::OccupyType;
-use crate::field::{FieldAction};
+use crate::field::{FieldAction, Field}; //Field  for a  test only
 use rand::prelude::*;
-//use wasm_bindgen::prelude::*;
+
 
 pub fn predict_player_corner<T: Clone>(computer: OccupyType, mv: &Point, mut f: T) -> bool where T: FieldAction {
     f.move_in_game(&mv, computer);
@@ -82,6 +82,50 @@ pub fn possible_movement(bw: OccupyType, f: &dyn FieldAction) -> bool {
 //TODO: add cache for computer moves
     let moves = f.get_list_of_moves(bw);
     return moves.len() > 0;
+}
+
+#[test]
+fn game_corners_nochance() {
+    let mut f = Field::new();
+    let bw=OccupyType::Black;
+    f.setup_field("
+o ******
+ o**o***
+o*oo*o**
+********
+ *o**o**
+***oooo*
+o******
+*******
+");
+    println!("{}", f.to_string());
+    let moves = f.get_list_of_moves(bw);
+    println!("{:?}", moves);
+    let mut max_point = computer_get_best_moves(true, bw, &moves, f.clone());
+    println!("{:?}", max_point);
+    assert_eq!(0, max_point.len());
+}
+
+#[test]
+fn game_corners_prevent() {
+    let mut f = Field::new();
+    let bw=OccupyType::Black;
+    f.setup_field("
+  ooo***
+ o**o***
+o*oo*o**
+********
+ *o**o**
+***oo*o*
+o******
+*******
+");
+    println!("{}", f.to_string());
+    let moves = f.get_list_of_moves(bw);
+    println!("{:?}", moves);
+    let mut max_point = computer_get_best_moves(true, bw, &moves, f.clone());
+    println!("{:?}", max_point);
+    assert_eq!(1, max_point.len());
 }
 
 

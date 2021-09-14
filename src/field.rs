@@ -106,7 +106,7 @@ impl Field {
 
     #[allow(dead_code)]
     //for debug purposes
-    fn setup_field(&mut self, string_field: &str) {
+    pub(crate) fn setup_field(&mut self, string_field: &str) {
         let lines: Vec<&str> = string_field.split("\n").collect();
         let mut l: u8 = 0;
         let mut first_line = true;
